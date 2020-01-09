@@ -18,6 +18,7 @@ public class lab1 {
         }
 
         sc = new Scanner(System.in);
+        System.out.println("Please enter search instructions");
         String input = sc.nextLine();
         while(!input.equals("Q") && !input.equals("Quit")) {
             input += " ";
@@ -40,6 +41,7 @@ public class lab1 {
             else if(inputArray[0].equals("I") || inputArray[0].equals("Info")) {
                 
             }
+            System.out.println("Please enter search instruction");
             input = sc.nextLine();
         }
     }
