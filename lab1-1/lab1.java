@@ -27,7 +27,7 @@ public class lab1 {
 
             }
             else if(inputArray[0].equals("T") || inputArray[0].equals("Teacher")) {
-                
+                teacher(inputArray[1]);
             }
             else if(inputArray[0].equals("B") || inputArray[0].equals("Bus")) {
                 
@@ -36,7 +36,7 @@ public class lab1 {
                 
             }
             else if(inputArray[0].equals("A") || inputArray[0].equals("Average")) {
-                
+                average(inputArray[1]);
             }
             else if(inputArray[0].equals("I") || inputArray[0].equals("Info")) {
                 
@@ -44,5 +44,25 @@ public class lab1 {
             System.out.println("Please enter search instruction");
             input = sc.nextLine();
         }
+    }
+
+    public static void teacher(String lastname) {
+        for(int i = 0; i < table.size(); i++) {
+            if(table.get(i).get(6).equals(lastname))
+                System.out.println(table.get(i).get(0) + " " + table.get(i).get(1));
+        }
+
+    }
+
+    public static void average(String number) {
+        double gpa = 0;
+        int count = 0;
+        for(int i = 0; i < table.size(); i++) {
+            if(table.get(i).get(2).equals(number)) {
+                gpa += Double.parseDouble(table.get(i).get(5));
+                count++;
+            }
+        }
+        System.out.println("Grade level:" + number + " Average GPA: " + gpa/count);
     }
 }
