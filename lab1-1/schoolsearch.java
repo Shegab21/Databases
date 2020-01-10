@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class lab1 {
+public class schoolsearch {
 
     static ArrayList<ArrayList<String>> table = new ArrayList<>();
 
@@ -23,19 +23,19 @@ public class lab1 {
         while(!input.equals("Q") && !input.equals("Quit")) {
             input += " ";
             String[] inputArray = input.split(" ");
-            if(inputArray[0].equals("S") || inputArray[0].equals("Student")) {
+            if(inputArray[0].equals("S:") || inputArray[0].equals("Student:")) {
 
             }
-            else if(inputArray[0].equals("T") || inputArray[0].equals("Teacher")) {
+            else if(inputArray[0].equals("T:") || inputArray[0].equals("Teacher:")) {
                 teacher(inputArray[1]);
             }
-            else if(inputArray[0].equals("B") || inputArray[0].equals("Bus")) {
+            else if(inputArray[0].equals("B:") || inputArray[0].equals("Bus:")) {
                 
             }
-            else if(inputArray[0].equals("G") || inputArray[0].equals("Grade")) {
+            else if(inputArray[0].equals("G:") || inputArray[0].equals("Grade:")) {
                 
             }
-            else if(inputArray[0].equals("A") || inputArray[0].equals("Average")) {
+            else if(inputArray[0].equals("A:") || inputArray[0].equals("Average:")) {
                 average(inputArray[1]);
             }
             else if(inputArray[0].equals("I") || inputArray[0].equals("Info")) {
