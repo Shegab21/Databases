@@ -65,4 +65,12 @@ public class lab1 {
         }
         System.out.println("Grade level:" + number + " Average GPA: " + gpa/count);
     }
+
+    public static void bus(String number) {
+	for(int i = 0; i < table.size(); i++) {
+		if(table.get(i).get(4).equals(number))
+			System.out.println(table.get(i).get(1) + " " + table.get(i).get(0) + " " +
+				table.get(i).get(5) + " " + table.get(i).get(3));
+	}
+    }    	
 }
