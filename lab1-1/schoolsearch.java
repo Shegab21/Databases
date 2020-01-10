@@ -26,20 +26,20 @@ public class schoolsearch {
             if(inputArray[0].equals("S:") || inputArray[0].equals("Student:")) {
 
             }
-            else if(inputArray[0].equals("T:") || inputArray[0].equals("Teacher:")) {
+            else if(inputArray.length > 1 && inputArray[0].equals("T:") || inputArray[0].equals("Teacher:")) {
                 teacher(inputArray[1]);
             }
-            else if(inputArray[0].equals("B:") || inputArray[0].equals("Bus:")) {
-                
+            else if(inputArray.length > 1 && inputArray[0].equals("B:") || inputArray[0].equals("Bus:")) {
+                bus(inputArray[1]);
             }
             else if(inputArray[0].equals("G:") || inputArray[0].equals("Grade:")) {
                 
             }
-            else if(inputArray[0].equals("A:") || inputArray[0].equals("Average:")) {
+            else if(inputArray.length > 1 && inputArray[0].equals("A:") || inputArray[0].equals("Average:")) {
                 average(inputArray[1]);
             }
             else if(inputArray[0].equals("I") || inputArray[0].equals("Info")) {
-                
+                info();
             }
             System.out.println("Please enter search instruction");
             input = sc.nextLine();
@@ -49,7 +49,7 @@ public class schoolsearch {
     public static void teacher(String lastname) {
         for(int i = 0; i < table.size(); i++) {
             if(table.get(i).get(6).equals(lastname))
-                System.out.println(table.get(i).get(0) + " " + table.get(i).get(1));
+                System.out.println(table.get(i).get(0) + "," + table.get(i).get(1));
         }
 
     }
@@ -63,14 +63,25 @@ public class schoolsearch {
                 count++;
             }
         }
-        System.out.println("Grade level:" + number + " Average GPA: " + gpa/count);
+        System.out.println(number + "," + gpa/count);
     }
 
     public static void bus(String number) {
-	for(int i = 0; i < table.size(); i++) {
-		if(table.get(i).get(4).equals(number))
-			System.out.println(table.get(i).get(1) + " " + table.get(i).get(0) + " " +
-				table.get(i).get(5) + " " + table.get(i).get(3));
-	}
-    }    	
+        for(int i = 0; i < table.size(); i++) {
+            if(table.get(i).get(4).equals(number))
+                System.out.println(table.get(i).get(1) + "," + table.get(i).get(0) + "," +
+                    table.get(i).get(2) + "," + table.get(i).get(3));
+        }
+    }
+    
+    public static void info() {
+        int[] students = new int[7];
+        for(int i = 0; i < table.size(); i++) {
+            int grade = Integer.parseInt(table.get(i).get(2));
+            students[grade] = students[grade] + 1;
+        }
+        for(int i = 0; i < students.length; i++) {
+            System.out.println(i + ": " + students[i]);
+        }
+    }
 }
