@@ -137,6 +137,7 @@ public class schoolsearch {
         }
         System.out.println(table.get(index).get(0) + "," + table.get(index).get(1) + "," + table.get(index).get(5)
                             + "," + table.get(index).get(6) + "," + table.get(index).get(7) + "," + table.get(index).get(4));
+        System.out.println();
 
         // System.out.println("Name: " + table.get(index).get(0) + "," + table.get(index).get(1));
         // System.out.println("GPA " + table.get(index).get(5));
@@ -163,6 +164,7 @@ public class schoolsearch {
         }
         System.out.println(table.get(index).get(0) + "," + table.get(index).get(1) + "," + table.get(index).get(5)
                             + "," + table.get(index).get(6) + "," + table.get(index).get(7) + "," + table.get(index).get(4));
+        System.out.println();
 
         // System.out.println("Name: " + table.get(index).get(0) + "," + table.get(index).get(1));
         // System.out.println("GPA " + table.get(index).get(5));
@@ -203,6 +205,7 @@ public class schoolsearch {
             }
         }
         System.out.println(number + "," + gpa/count);
+        System.out.println();
     }
 
     public static void bus(String number) {
