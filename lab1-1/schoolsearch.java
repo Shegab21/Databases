@@ -21,6 +21,8 @@ public class schoolsearch {
         while (sc.hasNextLine()) {
             String line = sc.nextLine();
             table.add(new ArrayList<>(Arrays.asList(line.split(","))));
+            if(table.get(table.size() - 1).size() != 8)
+                return;
         }
 
         sc = new Scanner(System.in);
@@ -141,11 +143,6 @@ public class schoolsearch {
         System.out.println(table.get(index).get(0) + "," + table.get(index).get(1) + "," + table.get(index).get(5)
                             + "," + table.get(index).get(6) + "," + table.get(index).get(7) + "," + table.get(index).get(4));
         System.out.println();
-
-        // System.out.println("Name: " + table.get(index).get(0) + "," + table.get(index).get(1));
-        // System.out.println("GPA " + table.get(index).get(5));
-        // System.out.println("Teacher: " + table.get(index).get(6) + "," + table.get(index).get(7));
-        // System.out.println("Bus route: " + table.get(index).get(4));
     }
 
     public static void gradeWithLowestGPA(String grade) {
@@ -169,34 +166,7 @@ public class schoolsearch {
                             + "," + table.get(index).get(6) + "," + table.get(index).get(7) + "," + table.get(index).get(4));
         System.out.println();
 
-        // System.out.println("Name: " + table.get(index).get(0) + "," + table.get(index).get(1));
-        // System.out.println("GPA " + table.get(index).get(5));
-        // System.out.println("Teacher: " + table.get(index).get(6) + "," + table.get(index).get(7));
-        // System.out.println("Bus route: " + table.get(index).get(4));
     }
-
-    // //compares a string with a GPA with an already parsed other GPA
-    // //if the new is greater than the old, return 1
-    // //if the old is greater than the new return -1
-    // //if they are the same return zero
-    // public static Pair<Integer,String> compareGPAs(String gpaNew, double gpaOld)
-    // {
-    //     //prolly need to check for exceptions
-    //     double gpaNewDouble = Double.parseDouble(gpaNew);
-    //     //gpaNewParsed = gpaNewDouble;
-    //     if(gpaNewDouble > gpaOld)
-    //     {
-    //         return new Pair<>(-1,gpaNewDouble);
-    //     }
-    //     else if(gpaNewDouble < gpaOld)
-    //     {
-    //         return new Pair<>(-1,gpaNewDouble);
-    //     }
-    //     else
-    //     {
-    //         return new Pair<>(0,gpaNewDouble);
-    //     }
-    // }
 
     public static void average(String number) {
         double gpa = 0;
