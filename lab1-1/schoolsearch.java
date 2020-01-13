@@ -126,19 +126,22 @@ public class schoolsearch {
         //the out variable in case the highest gpa changes
         double gpaNewDouble = 0.0;
         for(int i = 0; i < table.size(); i++) {
-            if(table.get(i).get(2).equals(grade))
-            gpaNewDouble = Double.parseDouble(table.get(i).get(5));
+            if(table.get(i).get(2).equals(grade)){
+                gpaNewDouble = Double.parseDouble(table.get(i).get(5));
                 if(gpaNewDouble > highestGPA)
                 {
                     highestGPA = gpaNewDouble;
                     index = i;
                 }
+            }
         }
+        System.out.println(table.get(index).get(0) + "," + table.get(index).get(1) + "," + table.get(index).get(5)
+                            + "," + table.get(index).get(6) + "," + table.get(index).get(7) + "," + table.get(index).get(4));
 
-        System.out.println("Name: " + table.get(index).get(0) + "," + table.get(index).get(1));
-        System.out.println("GPA " + table.get(index).get(5));
-        System.out.println("Teacher: " + table.get(index).get(6) + "," + table.get(index).get(7));
-        System.out.println("Bus route: " + table.get(index).get(4));
+        // System.out.println("Name: " + table.get(index).get(0) + "," + table.get(index).get(1));
+        // System.out.println("GPA " + table.get(index).get(5));
+        // System.out.println("Teacher: " + table.get(index).get(6) + "," + table.get(index).get(7));
+        // System.out.println("Bus route: " + table.get(index).get(4));
     }
 
     public static void gradeWithLowestGPA(String grade) {
@@ -149,19 +152,22 @@ public class schoolsearch {
         //the out variable in case the lowest gpa changes
         double gpaNewDouble = 0.0;
         for(int i = 0; i < table.size(); i++) {
-            if(table.get(i).get(2).equals(grade))
-            gpaNewDouble = Double.parseDouble(table.get(i).get(5));
+            if(table.get(i).get(2).equals(grade)){
+                gpaNewDouble = Double.parseDouble(table.get(i).get(5));
                 if(gpaNewDouble < lowestGPA)
                 {
                     lowestGPA = gpaNewDouble;
                     index = i;
                 }
+            }
         }
+        System.out.println(table.get(index).get(0) + "," + table.get(index).get(1) + "," + table.get(index).get(5)
+                            + "," + table.get(index).get(6) + "," + table.get(index).get(7) + "," + table.get(index).get(4));
 
-        System.out.println("Name: " + table.get(index).get(0) + "," + table.get(index).get(1));
-        System.out.println("GPA " + table.get(index).get(5));
-        System.out.println("Teacher: " + table.get(index).get(6) + "," + table.get(index).get(7));
-        System.out.println("Bus route: " + table.get(index).get(4));
+        // System.out.println("Name: " + table.get(index).get(0) + "," + table.get(index).get(1));
+        // System.out.println("GPA " + table.get(index).get(5));
+        // System.out.println("Teacher: " + table.get(index).get(6) + "," + table.get(index).get(7));
+        // System.out.println("Bus route: " + table.get(index).get(4));
     }
 
     // //compares a string with a GPA with an already parsed other GPA
