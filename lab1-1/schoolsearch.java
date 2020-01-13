@@ -25,6 +25,10 @@ public class schoolsearch {
                 return;
         }
 
+        System.out.println("Here are the possible search instructions:");
+        System.out.println("• S[tudent]: <lastname> [B[us]]\n• T[eacher]: <lastname>\n• B[us]: <number>\n" + 
+        "• G[rade]: <number> [H[igh]|L[ow]]\n• A[verage]: <number>\n• I[nfo]\n• Q[uit]");
+
         sc = new Scanner(System.in);
         System.out.println("Please enter search instructions");
         String input = sc.nextLine();
