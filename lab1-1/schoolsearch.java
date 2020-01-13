@@ -79,11 +79,13 @@ public class schoolsearch {
     }
 
     public static void student(String lastname, String busNumber) {
-        for(int i = 0; i < table.size(); i++) {
-            if(table.get(i).get(0).equals(lastname))
-                System.out.println(table.get(i).get(0) + "," + table.get(i).get(1) + ","+ table.get(i).get(4));
+        if(busNumber.equals("B") || busNumber.equals("Bus")){
+            for(int i = 0; i < table.size(); i++) {
+                if(table.get(i).get(0).equals(lastname))
+                    System.out.println(table.get(i).get(0) + "," + table.get(i).get(1) + ","+ table.get(i).get(4));
+            }
+            System.out.println();
         }
-        System.out.println();
     }
 
     public static void teacher(String lastname) {
