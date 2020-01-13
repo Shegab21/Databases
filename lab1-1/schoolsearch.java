@@ -14,6 +14,8 @@ public class schoolsearch {
 
     public static void main(String[] args) throws FileNotFoundException {
         File file = new File("students.txt");
+        if(!file.exists())
+            return;
         Scanner sc = new Scanner(file);
 
         while (sc.hasNextLine()) {
