@@ -22,12 +22,12 @@ Student: NEMO
 // TC-5
 // Tests Requirements R3, R5
 // short form command name with Bus option, existing student
-// expected output: HAVIR,BOBBIE,108
+// expected output: HAVIR,BOBBIE,0
 S: HAVIR B
 // TC-6
 // Tests Requirements R3, R5
 // long form command name with Bus option, existing student
-// expected output: HAVIR,BOBBIE,108
+// expected output: HAVIR,BOBBIE,0
 S: HAVIR Bus
 // TC-7
 // Tests Requirements R3, R5
@@ -71,13 +71,23 @@ Grade: 9
 // TC-14
 // Tests Requirements R3, R8
 // short form command name, existing bus
-// expected output: CARLEE, DURAND
-B: 1
+// expected output: NOEL,RACANELLO,6,102
+//                  EMMANUEL,VILARDO,2,104
+//                  VALENTIN,KRAKE,6,109
+//                  INGER,BEAN,6,111
+//                  BILLY,BUSSMANN,2,108
+//                  WILFREDO,FEYEREISEN,6,111
+B: 56
 // TC-15
 // Tests Requirements R3, R8
 // long form command name, existing bus
-// expected output: CARLEE, DURAND
-Bus: 1
+// expected output: NOEL,RACANELLO,6,102
+//                  EMMANUEL,VILARDO,2,104
+//                  VALENTIN,KRAKE,6,109
+//                  INGER,BEAN,6,111
+//                  BILLY,BUSSMANN,2,108
+//                  WILFREDO,FEYEREISEN,6,111
+Bus: 56
 // TC-16
 // Tests Requirements R3, R8
 // long form command name, non-existing bus
@@ -86,12 +96,12 @@ Bus: 392
 // TC-17
 // Tests Requirements R3, R9
 // short form command name, existing grade with High
-// expected output: GARTH,JOHN,3.14,FALKER,ADOLPH, 103
+// expected output: GARTH,JOHN,3.14,FALKER,ADOLPH, 0
 G: 1 H
 // TC-18
 // Tests Requirements R3, R9
 // long form command name, existing grade with Low
-// expected output: SAELEE,DANILO,2.85,FALKER,ADOLPH,103
+// expected output: SAELEE,DANILO,2.85,FALKER,ADOLPH,0
 Grade: 1 Low
 // TC-19
 // Tests Requirements R3, R10

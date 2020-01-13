@@ -97,7 +97,7 @@ public class schoolsearch {
 
     public static void grade(String grade) {
         for(int i = 0; i < table.size(); i++) {
-            if(table.get(i).get(6).equals(grade))
+            if(table.get(i).get(2).equals(grade))
                 System.out.println(table.get(i).get(0) + "," + table.get(i).get(1));
         }
         System.out.println();
