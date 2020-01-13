@@ -1,0 +1,106 @@
+Please enter search instruction
+S: HAVIR
+HAVIR,BOBBIE,2,108,HAMER,GAVIN
+
+Please enter search instruction
+Student: HAVIR
+HAVIR,BOBBIE,2,108,HAMER,GAVIN
+
+Please enter search instruction
+S: NEMO
+
+Please enter search instruction
+Student: NEMO
+
+Please enter search instruction
+S: HAVIR B
+HAVIR,BOBBIE,0
+
+Please enter search instruction
+S: HAVIR Bus
+HAVIR,BOBBIE,0
+
+Please enter search instruction
+Student: NEMO Bus
+
+Please enter search instruction
+T: STEIB
+WOOLERY,NOLAN
+VILARDO,EMMANUEL
+
+Please enter search instruction
+Teacher: STEIB
+WOOLERY,NOLAN
+VILARDO,EMMANUEL
+
+Please enter search instruction
+Teacher: NEMO
+
+Please enter search instruction
+G: 1
+SAELEE,DANILO
+GARTH,JOHN
+
+Please enter search instruction
+Grade: 1
+SAELEE,DANILO
+GARTH,JOHN
+
+Please enter search instruction
+Grade: 9
+
+
+Please enter search instruction
+B: 56
+NOEL,RACANELLO,6,102
+EMMANUEL,VILARDO,2,104
+VALENTIN,KRAKE,6,109
+INGER,BEAN,6,111
+BILLY,BUSSMANN,2,108
+WILFREDO,FEYEREISEN,6,111
+
+Please enter search instruction
+Bus: 56
+NOEL,RACANELLO,6,102
+EMMANUEL,VILARDO,2,104
+VALENTIN,KRAKE,6,109
+INGER,BEAN,6,111
+BILLY,BUSSMANN,2,108
+WILFREDO,FEYEREISEN,6,111
+
+Please enter search instruction
+Bus: 392
+
+Please enter search instruction
+G: 1 H
+GARTH,JOHN,3.14,FALKER,ADOLPH,0
+Please enter search instruction
+Grade: 1 Low
+SAELEE,DANILO,2.85,FALKER,ADOLPH,54
+Please enter search instruction
+A: 1
+1,2.995
+Please enter search instruction
+Average: 1
+1,2.995
+Please enter search instruction
+I
+0: 0
+1: 2
+2: 13
+3: 9
+4: 15
+5: 0
+6: 21
+Please enter search instruction
+Info
+0: 0
+1: 2
+2: 13
+3: 9
+4: 15
+5: 0
+6: 21
+Please enter search instruction
+Babies
+Please enter search instruction

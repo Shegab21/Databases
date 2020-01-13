@@ -136,12 +136,12 @@ I
 //                  6: 21
 Info
 // TC-23
-// Tests Requirments R3, R13
-// quit command
-// expected output: program terminates
-Q
-// TC-24
 // Tests Requirements E1
 // incorrect command
 // expected output: <no output>
 Babies
+// TC-24
+// Tests Requirments R3, R13
+// quit command
+// expected output: program terminates
+Q
