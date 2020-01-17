@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+
+import javax.lang.model.util.ElementScanner6;
+
 import java.util.*;
 
 
@@ -77,9 +80,21 @@ public class schoolsearch {
             else if(inputArray.length > 1 && inputArray[0].equals("B:") || inputArray[0].equals("Bus:")) {
                 bus(inputArray[1]);
             }
-            else if(inputArray[0].equals("G:") || inputArray[0].equals("Grade:")) {
-                
+            //the default would print out students
+            //for the teachers, put a T[eacher] flag at the end
+            else if(inputArray.length > 1 && inputArray[0].equals("C:") || inputArray[0].equals("Classroom:")) {
+                if(inputArray.length > 2)
+                {
+                    classroomTeacher(inputArray[1]);
+                }
+                else
+                {
+                    classroomStudent(inputArray[1]);
+                }
             }
+            /*else if(inputArray[0].equals("G:") || inputArray[0].equals("Grade:")) {
+                
+            }*/
             else if(inputArray.length > 1 && inputArray[0].equals("A:") || inputArray[0].equals("Average:")) {
                 average(inputArray[1]);
             }
@@ -146,14 +161,74 @@ public class schoolsearch {
         System.out.println();
     }
 
+    public static void classroomTeacher(String classroom) {
+        /*for(int i = 0; i < teachers.size(); i++) {
+            if(teachers.get(i).get(2).equals(classroom))
+                System.out.println(teachers.get(i).get(0) + "," + teachers.get(i).get(1));
+        }
+        System.out.println();*/
+        ArrayList<String> teachersByClassroom = findClassroomTeacher(classroom);
+
+        for(int i = 0; i < teachersByClassroom.size()-1; i=i+2) {
+            System.out.println(teachersByClassroom.get(i) + "," + teachers.get(i+1));
+        }
+        System.out.println();
+    }
+
+    //given classroom returns array with teacher's name
+    //teacher's name takes up two spots in the array
+    public static ArrayList<String> findClassroomTeacher(String classroom) {
+        //ArrayList<ArrayList<String>> teachersByClassroom = new ArrayList<>();
+        ArrayList<String> teachersByClassroom = new ArrayList<>();
+        //int countOfTeachers = 0;
+        for(int i = 0; i < teachers.size(); i++) {
+            if(teachers.get(i).get(2).equals(classroom)){
+                //teachersByClassroom.add(new ArrayList<>(teachers.get(i).get(0),teachers.get(i).get(1)));
+                teachersByClassroom.add(teachers.get(i).get(0));
+                teachersByClassroom.add(teachers.get(i).get(1));
+            }
+        }
+        return teachersByClassroom;
+        //System.out.println();
+    }
+
+
+    public static void teacherByGrade(String grade) {
+        ArrayList<ArrayList<String>> teachersByClassroom = new ArrayList<>();
+        //find classrooms with given grade
+        for(int i = 0; i < table.size(); i++) {
+            if(table.get(i).get(2).equals(grade)){
+                //System.out.println(table.get(i).get(0) + "," + table.get(i).get(1));
+                teachersByClassroom
+            }
+
+
+        }
+        System.out.println();
+    }
+
+    public static void classroomStudent(String classroom) {
+        for(int i = 0; i < table.size(); i++) {
+            if(table.get(i).get(3).equals(classroom))
+                System.out.println(table.get(i).get(0) + "," + table.get(i).get(1));
+        }
+        System.out.println();
+    }
+
     public static void grade(String grade, String typeOfGPA) {
         if(typeOfGPA.equals("H") || typeOfGPA.equals("High"))
         {
             gradeWithHighestGPA(grade);
         }
-        else
+        else if(typeOfGPA.equals("L") || typeOfGPA.equals("Low"))
         {
             gradeWithLowestGPA(grade);
+        }
+        else
+        {
+            //T[eacher]
+            teacherByGrade(grade);
+
         }
         
 
