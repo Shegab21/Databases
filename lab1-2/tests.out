@@ -2,13 +2,16 @@ Here are the possible search instructions:
 • S[tudent]: <lastname> [B[us]]
 • T[eacher]: <lastname>
 • B[us]: <number>
-• G[rade]: <number> [H[igh]|L[ow]]
+• G[rade]: <number> [H[igh] | L[ow] | T[eacher]]
 • A[verage]: <number>
+• C[lassroom]: <number> [T[eacher]]
+• E[nrollment]
 • I[nfo]
 • A[nalyze]G[rade]: <lastname>
 • A[nalyze]T[eacher]: <lastname>
 • A[nalyze]B[us]: <lastname>
 • Q[uit]
+
 Please enter search instruction
 S: HAVIR
 HAVIR,BOBBIE,2,108,HAMER,GAVIN
@@ -59,7 +62,6 @@ GARTH,JOHN
 
 Please enter search instruction
 Grade: 9
-
 
 Please enter search instruction
 B: 56
@@ -116,6 +118,33 @@ Info
 4: 15
 5: 0
 6: 21
+Please enter search instruction
+C: 103
+SAELEE,DANILO
+GARTH,JOHN
+
+Please enter search instruction
+C: 103 T
+FALKER,ADOLPH
+
+Please enter search instruction
+G: 1 T
+FALKER,ADOLPH
+
+Please enter search instruction
+E
+101: 1
+102: 5
+103: 2
+104: 2
+105: 6
+106: 2
+107: 7
+108: 11
+109: 5
+110: 2
+111: 9
+112: 8
 Please enter search instructions
 AG: GARTH
 Student GPA: 3.14

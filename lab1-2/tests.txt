@@ -136,30 +136,62 @@ I
 //                  5: 0
 //                  6: 21
 Info
-// TC-20
+// TC-23
+// Tests Requirements NR1
+// short form command name, existing classroom
+// expected output: Student GPA: 3.14
+//                  Average GPA of students in grade 1: 2.995
+C: 103
+// TC-24
+// Tests Requirements NR2
+// short form command name, existing classroom
+// expected output: FALKER,ADOLPH
+C: 103 T
+// TC-25
+// Tests Requirements NR3
+// short form command name, existing grade
+// expected output: FALKER,ADOLPH
+G: 1 T
+// TC-26
+// Tests Requirements NR4
+// long form command name
+// expected output: 101: 1
+//                  102: 5
+//                  103: 2
+//                  104: 2
+//                  105: 6
+//                  106: 2
+//                  107: 7
+//                  108: 11
+//                  109: 5
+//                  110: 2
+//                  111: 9
+//                  112: 8
+Enrollment
+// TC-27
 // Tests Requirements NR5
 // short form command name, existing student
 // expected output: Student GPA: 3.14
 //                  Average GPA of students in grade 1: 2.995
 AG: GARTH
-// TC-20
+// TC-28
 // Tests Requirements NR5
 // short form command name, existing student
 // expected output: Student GPA: 3.14
 //                  Average GPA of students with teacher FALKER: 2.995
 AT: GARTH
-// TC-20
+// TC-29
 // Tests Requirements NR5
 // short form command name, existing student
 // expected output: Student GPA: 3.14
 //                  Average GPA of students on bus 0: 2.9525
 AB: GARTH
-// TC-23
+// TC-30
 // Tests Requirements E1
 // incorrect command
 // expected output: <no output>
 Babies
-// TC-24
+// TC-31
 // Tests Requirments R3, R13
 // quit command
 // expected output: program terminates

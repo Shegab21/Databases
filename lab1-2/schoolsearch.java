@@ -52,7 +52,6 @@ public class schoolsearch {
         sc = new Scanner(System.in);
         System.out.println("Please enter search instructions");
         String input = sc.nextLine();
-        System.out.println();
         while(!input.equals("Q") && !input.equals("Quit")) {
             input += " ";
             String[] inputArray = input.split(" ");
@@ -60,13 +59,10 @@ public class schoolsearch {
                 if(inputArray.length == 3)
                 {
                     student(inputArray[1], inputArray[2]);
-                    
-                    
                 }
                 else
                 {
                     student(inputArray[1]);
-                    
                 }
                 
             }
@@ -98,10 +94,6 @@ public class schoolsearch {
                 {
                     classroomTeacher(inputArray[1]);
                 }
-                else 
-                {
-                    System.out.println("Invalid input.\n");
-                }
             }
             else if(inputArray.length == 1 && inputArray[0].equals("E") || inputArray[0].equals("Enrollment"))
             {
@@ -131,7 +123,6 @@ public class schoolsearch {
             }
             System.out.println("Please enter search instruction");
             input = sc.nextLine();
-            System.out.println();
         }
     }
 
@@ -204,7 +195,6 @@ public class schoolsearch {
     }
 
     public static void student(String lastname) {
-        boolean contains = false;
         for(int i = 0; i < table.size(); i++) {
             
             if(table.get(i).get(0).equals(lastname)) {
@@ -212,7 +202,6 @@ public class schoolsearch {
                 for(int j = 0; j < teachers.size(); j++) {
                     
                     if(table.get(i).get(3).equals(teachers.get(j).get(2))){
-                        contains = true;
                         System.out.println(table.get(i).get(0) + "," + table.get(i).get(1) + ","+ table.get(i).get(2) + ","
                         + table.get(i).get(3) + "," + teachers.get(j).get(0) + "," + teachers.get(j).get(1));
                     }
@@ -221,32 +210,18 @@ public class schoolsearch {
                 // + table.get(i).get(3) + "," + table.get(i).get(6) + "," + table.get(i).get(7));
             }
         }
-        if(!contains)
-        {
-            System.out.println("No students with this last name.");
-        }
         System.out.println();
 
     }
 
     public static void student(String lastname, String busNumber) {
-        boolean contains = false;
         if(busNumber.equals("B") || busNumber.equals("Bus")){
             for(int i = 0; i < table.size(); i++) {
                 if(table.get(i).get(0).equals(lastname)){
-                    contains = true;
                     System.out.println(table.get(i).get(0) + "," + table.get(i).get(1) + ","+ table.get(i).get(4));
                 }
             }
-            if(!contains)
-            {
-                System.out.println("No students with this last name.");
-            }
             System.out.println();
-        }
-        else
-        {
-            System.out.println("Invalid input.\n");
         }
         
     }
@@ -258,7 +233,6 @@ public class schoolsearch {
         // }
         // System.out.println();
         String classroom = "";
-        boolean contains = false;
         for(int i = 0; i < teachers.size(); i++) {
             if(teachers.get(i).get(0).equals(lastname)){
                 classroom = teachers.get(i).get(2);
@@ -266,30 +240,19 @@ public class schoolsearch {
         }
         for(int i = 0; i < table.size(); i++) {
             if(table.get(i).get(3).equals(classroom)){
-                contains = true;
                 System.out.println(table.get(i).get(0) + "," + table.get(i).get(1));
             }
-        }
-        if(!contains)
-        {
-            System.out.println("No students of the teacher with this last name.");
         }
         System.out.println();
 
     }
 
     public static void grade(String grade) {
-        boolean contains = false;
         for(int i = 0; i < table.size(); i++) {
             if(table.get(i).get(2).equals(grade))
             {
-                contains = true;
                 System.out.println(table.get(i).get(0) + "," + table.get(i).get(1));
             }
-        }
-        if(!contains)
-        {
-            System.out.println("No students in this grade.");
         }
         System.out.println();
     }
@@ -301,15 +264,8 @@ public class schoolsearch {
         }
         System.out.println();*/
         ArrayList<String> teachersByClassroom = findClassroomTeacher(classroom);
-        boolean contains = false;
-
         for(int i = 0; i < teachersByClassroom.size()-1; i=i+2) {
-            contains = true;
             System.out.println(teachersByClassroom.get(i) + "," + teachersByClassroom.get(i+1));
-        }
-        if(!contains)
-        {
-            System.out.println("No teachers in this classroom.");
         }
         System.out.println();
     }
@@ -336,7 +292,6 @@ public class schoolsearch {
         //ArrayList<ArrayList<String>> teachersByClassroom = new ArrayList<>();
         ArrayList<String> classrooms = new ArrayList<>();
         ArrayList<String> teachersOfGrade = new ArrayList<>();
-        boolean contains = false;
         //find classrooms with given grade
         for(int i = 0; i < table.size(); i++) {
             /*if(!teachersByClassroom.contains(table.get(i).get(3)) && table.get(i).get(2).equals(grade)){
@@ -358,30 +313,18 @@ public class schoolsearch {
 
         for(int i = 0; i < teachersOfGrade.size()-1; i=i+2) 
         {
-            contains = true;
             System.out.println(teachersOfGrade.get(i) + "," + teachersOfGrade.get(i+1));
-        }
-
-        if(!contains)
-        {
-            System.out.println("No teachers in this grade.");
         }
 
         System.out.println();
     }
 
     public static void classroomStudent(String classroom) {
-        boolean contains = false;
         for(int i = 0; i < table.size(); i++) {
             
             if(table.get(i).get(3).equals(classroom)){
-                contains = true;
                 System.out.println(table.get(i).get(0) + "," + table.get(i).get(1));
             }
-        }
-        if(!contains)
-        {
-            System.out.println("No students in this classroom.");
         }
         System.out.println();
     }
@@ -390,7 +333,6 @@ public class schoolsearch {
         ArrayList<ArrayList<Integer>> classroomCount = new ArrayList<>();
         // first index of each inner array is classroom number and second is classroom count
         ArrayList<String> classroomsAdded = new ArrayList<>();
-        boolean contains = false;
         for(int i = 0; i < table.size(); i++) {
             int classroomNumber = Integer.parseInt(table.get(i).get(3));
             //SALMA
@@ -449,16 +391,8 @@ public class schoolsearch {
 
         for(ArrayList<Integer> list : classroomCount)
         {
-            contains = true;
             System.out.println(list.get(0) + ": " + list.get(1));
         }
-
-        if(!contains)
-        {
-            System.out.println("No students in this school.");
-        }
-
-
         System.out.println();
         
     }
@@ -477,17 +411,12 @@ public class schoolsearch {
             teacherByGrade(grade);
 
         }
-        else
-        {
-            System.out.println("Invalid input.\n");
-        }
         
 
     }
 
     public static void gradeWithHighestGPA(String grade) {
 
-        boolean contains = false;
         //array index for the student with the highest GPA of those with the given grade
         int index = -1;
         double highestGPA = 0.0;
@@ -507,16 +436,11 @@ public class schoolsearch {
         }
         for(int i = 0; i < teachers.size(); i++) {
             if(teachers.get(i).get(2).equals(classroom)) {
-                contains = true;
                 System.out.println(table.get(index).get(0) + "," + table.get(index).get(1) + "," + table.get(index).get(5)
                             + "," + teachers.get(i).get(0) + "," + teachers.get(i).get(1) + "," + table.get(index).get(4));
                 System.out.println();
                 break;
             }
-        }
-        if(!contains)
-        {
-            System.out.println("No students in this grade.\n");
         }
         // System.out.println(table.get(index).get(0) + "," + table.get(index).get(1) + "," + table.get(index).get(5)
         //                     + "," + table.get(index).get(6) + "," + table.get(index).get(7) + "," + table.get(index).get(4));
@@ -531,7 +455,6 @@ public class schoolsearch {
         //the out variable in case the lowest gpa changes
         double gpaNewDouble = 0.0;
         String classroom = "";
-        boolean contains = false;
         for(int i = 0; i < table.size(); i++) {
             if(table.get(i).get(2).equals(grade)){
                 gpaNewDouble = Double.parseDouble(table.get(i).get(5));
@@ -545,16 +468,11 @@ public class schoolsearch {
         }
         for(int i = 0; i < teachers.size(); i++) {
             if(teachers.get(i).get(2).equals(classroom)) {
-                contains = true;
                 System.out.println(table.get(index).get(0) + "," + table.get(index).get(1) + "," + table.get(index).get(5)
                             + "," + teachers.get(i).get(0) + "," + teachers.get(i).get(1) + "," + table.get(index).get(4));
                 System.out.println();
                 break;
             }
-        }
-        if(!contains)
-        {
-            System.out.println("No students in this grade.\n");
         }
         // System.out.println(table.get(index).get(0) + "," + table.get(index).get(1) + "," + table.get(index).get(5)
         //                     + "," + table.get(index).get(6) + "," + table.get(index).get(7) + "," + table.get(index).get(4));
@@ -565,40 +483,22 @@ public class schoolsearch {
     public static void average(String number) {
         double gpa = 0;
         int count = 0;
-        boolean contains = false;
         for(int i = 0; i < table.size(); i++) {
             if(table.get(i).get(2).equals(number)) {
-                contains = true;
                 gpa += Double.parseDouble(table.get(i).get(5));
                 count++;
             }
         }
-
-        if(!contains)
-        {
-            System.out.println("No students in this grade.\n");
-        }
-        else
-        {
-            double averageGPA = gpa/count;
-            DecimalFormat df = new DecimalFormat(".##");
-            System.out.println(number + " , " + df.format(averageGPA));
-            System.out.println();
-        }
+        System.out.println(number + "," + gpa/count);
+        System.out.println();
     }
 
     public static void bus(String number) {
-        boolean contains = false;
         for(int i = 0; i < table.size(); i++) {
             if(table.get(i).get(4).equals(number)){
-                contains = true;
                 System.out.println(table.get(i).get(1) + "," + table.get(i).get(0) + "," +
                     table.get(i).get(2) + "," + table.get(i).get(3));
             }
-        }
-        if(!contains)
-        {
-            System.out.println("No students with this bus route.");
         }
         System.out.println();
     }
