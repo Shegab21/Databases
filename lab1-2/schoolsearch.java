@@ -92,6 +92,10 @@ public class schoolsearch {
                     classroomStudent(inputArray[1]);
                 }
             }
+            else if(inputArray.length > 1 && inputArray[0].equals("E:") || inputArray[0].equals("Enrollment:"))
+            {
+                enrollment();
+            }
             /*else if(inputArray[0].equals("G:") || inputArray[0].equals("Grade:")) {
                 
             }*/
@@ -194,16 +198,29 @@ public class schoolsearch {
 
 
     public static void teacherByGrade(String grade) {
-        ArrayList<ArrayList<String>> teachersByClassroom = new ArrayList<>();
+        //ArrayList<ArrayList<String>> teachersByClassroom = new ArrayList<>();
+        ArrayList<String> classrooms = new ArrayList<>();
+        ArrayList<String> teachersOfGrade = new ArrayList<>();
         //find classrooms with given grade
         for(int i = 0; i < table.size(); i++) {
-            if(table.get(i).get(2).equals(grade)){
+            /*if(!teachersByClassroom.contains(table.get(i).get(3)) && table.get(i).get(2).equals(grade)){
                 //System.out.println(table.get(i).get(0) + "," + table.get(i).get(1));
-                teachersByClassroom
+                teachersByClassroom.add(new ArrayList<String>(table.get(i).get(3),findClassroomTeacher(table.get(i).get(3))));
+                
+            }*/
+
+            if(!classrooms.contains(table.get(i).get(3)) && table.get(i).get(2).equals(grade))
+            {
+                classrooms.add(table.get(i).get(3));
+                teachersOfGrade.addAll(findClassroomTeacher(table.get(i).get(3)));
             }
 
-
         }
+
+        for(int i = 0; i < teachersOfGrade.size()-1; i=i+2) {
+            System.out.println(teachersOfGrade.get(i) + "," + teachers.get(i+1));
+        }
+
         System.out.println();
     }
 
@@ -213,6 +230,53 @@ public class schoolsearch {
                 System.out.println(table.get(i).get(0) + "," + table.get(i).get(1));
         }
         System.out.println();
+    }
+
+    public static void enrollment() {
+        ArrayList<ArrayList<Integer>> classroomCount = new ArrayList<>();
+        // first index of each inner array is classroom number and second is classroom count
+        ArrayList<String> classroomsAdded = new ArrayList<>();
+        for(int i = 0; i < table.size(); i++) {
+            int classroomNumber = Integer.parseInt(table.get(i).get(3));
+            if(classroomsAdded.contains(table.get(i).get(3)))
+            {
+                //classroomCount.indexOf(classroomNumber);
+                for (ArrayList<Integer> list : classroomCount) {
+                    if(list.get(0).equals(classroomNumber))
+                    {
+                        int oldCount = classroomCount.get(list.indexOf(classroomNumber)).get(1);
+                        classroomCount.get(list.indexOf(classroomNumber)).set(1,oldCount + 1);
+                        break;
+                    }
+                    
+                }
+            }
+            else
+            {
+                classroomsAdded.add(table.get(i).get(3));
+                classroomCount.add(new ArrayList<Integer>( 
+                    Arrays.asList(classroomNumber, 1)));
+            }
+
+            
+
+                //System.out.println(table.get(i).get(0) + "," + table.get(i).get(1) + ","+ table.get(i).get(4));
+        }
+        Collections.sort(classroomCount, new Comparator<ArrayList<Integer>>() {    
+            //@Override
+            public int compare(ArrayList<Integer> list1, ArrayList<Integer> list2) {
+                return list1.get(0) - list2.get(0);
+            }               
+        });
+
+        for(ArrayList<Integer> list : classroomCount)
+        {
+
+        }
+
+
+        System.out.println();
+        
     }
 
     public static void grade(String grade, String typeOfGPA) {
