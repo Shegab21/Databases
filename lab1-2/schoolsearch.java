@@ -44,7 +44,8 @@ public class schoolsearch {
 
         System.out.println("Here are the possible search instructions:");
         System.out.println("• S[tudent]: <lastname> [B[us]]\n• T[eacher]: <lastname>\n• B[us]: <number>\n" + 
-        "• G[rade]: <number> [H[igh]|L[ow]]\n• A[verage]: <number>\n• I[nfo]\n• Q[uit]");
+        "• G[rade]: <number> [H[igh]|L[ow]]\n• A[verage]: <number>\n• I[nfo]\n• A[nalyze]G[rade]: <lastname>\n• " +
+        "A[nalyze]T[eacher]: <lastname>\n• A[nalyze]B[us]: <lastname>\n• Q[uit]");
 
         sc = new Scanner(System.in);
         System.out.println("Please enter search instructions");
@@ -105,9 +106,86 @@ public class schoolsearch {
             else if(inputArray[0].equals("I") || inputArray[0].equals("Info")) {
                 info();
             }
+            else if(inputArray.length > 1 && inputArray[0].equals("AG:") || inputArray[0].equals("AnalyzeGrades:")) {
+                analyzeGrade(inputArray[1]);
+            }
+            else if(inputArray.length > 1 && inputArray[0].equals("AT:") || inputArray[0].equals("AnalyzeTeacher:")) {
+                analyzeTeacher(inputArray[1]);
+            }
+            else if(inputArray.length > 1 && inputArray[0].equals("AB:") || inputArray[0].equals("AnalyzeBus:")) {
+                analyzeBus(inputArray[1]);
+            }
             System.out.println("Please enter search instruction");
             input = sc.nextLine();
         }
+    }
+
+    private static void analyzeBus(String student) {
+        String studentGrade = "";
+        String bus = "";
+        double totalGpa = 0;
+        int count = 0;
+        for(int i = 0; i < table.size(); i++) {
+            if(table.get(i).get(0).equals(student)){
+                studentGrade = table.get(i).get(5);
+                bus = table.get(i).get(4);
+            }
+        }
+        for(int i = 0; i < table.size(); i++) {
+            if(table.get(i).get(4).equals(bus)) {
+                count++;
+                totalGpa += Double.parseDouble(table.get(i).get(5));
+            }
+        }
+        System.out.println("Student GPA: " + studentGrade);
+        System.out.println("Average GPA of students on bus " + bus + ": " + totalGpa/count);
+    }
+
+    private static void analyzeTeacher(String student) {
+        String studentGrade = "";
+        String classroom = "";
+        String teacher = "";
+        double totalGpa = 0;
+        int count = 0;
+        for(int i = 0; i < table.size(); i++) {
+            if(table.get(i).get(0).equals(student)){
+                studentGrade = table.get(i).get(5);
+                classroom = table.get(i).get(3);
+            }
+        }
+        for(int i = 0; i < table.size(); i++) {
+            if(table.get(i).get(3).equals(classroom)) {
+                count++;
+                totalGpa += Double.parseDouble(table.get(i).get(5));
+            }
+        }
+        for(int i = 0; i < teachers.size(); i++) {
+            if(teachers.get(i).get(2).equals(classroom))
+                teacher = teachers.get(i).get(0);
+        }
+        System.out.println("Student GPA: " + studentGrade);
+        System.out.println("Average GPA of students with teacher " + teacher + ": " + totalGpa/count);
+    }
+
+    private static void analyzeGrade(String student) {
+        String studentGrade = "";
+        String grade = "";
+        double totalGpa = 0;
+        int count = 0;
+        for(int i = 0; i < table.size(); i++) {
+            if(table.get(i).get(0).equals(student)){
+                studentGrade = table.get(i).get(5);
+                grade = table.get(i).get(2);
+            }
+        }
+        for(int i = 0; i < table.size(); i++) {
+            if(table.get(i).get(2).equals(grade)) {
+                count++;
+                totalGpa += Double.parseDouble(table.get(i).get(5));
+            }
+        }
+        System.out.println("Student GPA: " + studentGrade);
+        System.out.println("Average GPA of students in grade " + grade + ": " + totalGpa/count);
     }
 
     public static void student(String lastname) {

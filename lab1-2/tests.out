@@ -2,9 +2,12 @@ Here are the possible search instructions:
 • S[tudent]: <lastname> [B[us]]
 • T[eacher]: <lastname>
 • B[us]: <number>
-• G[rade]: <number> [H[igh]|L[ow]] 
+• G[rade]: <number> [H[igh]|L[ow]]
 • A[verage]: <number>
 • I[nfo]
+• A[nalyze]G[rade]: <lastname>
+• A[nalyze]T[eacher]: <lastname>
+• A[nalyze]B[us]: <lastname>
 • Q[uit]
 Please enter search instruction
 S: HAVIR
@@ -113,6 +116,18 @@ Info
 4: 15
 5: 0
 6: 21
+Please enter search instructions
+AG: GARTH
+Student GPA: 3.14
+Average GPA of students in grade 1: 2.995
+Please enter search instruction
+AT: GARTH
+Student GPA: 3.14
+Average GPA of students with teacher FALKER: 2.995
+Please enter search instruction
+AB: GARTH
+Student GPA: 3.14
+Average GPA of students on bus 0: 2.9525
 Please enter search instruction
 Babies
 Please enter search instruction

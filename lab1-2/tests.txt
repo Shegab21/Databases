@@ -102,7 +102,7 @@ G: 1 H
 // TC-18
 // Tests Requirements R3, R9
 // long form command name, existing grade with Low
-// expected output: SAELEE,DANILO,2.85,FALKER,ADOLPH,0
+// expected output: SAELEE,DANILO,2.85,FALKER,ADOLPH,54
 Grade: 1 Low
 // TC-19
 // Tests Requirements R3, R10
@@ -136,6 +136,24 @@ I
 //                  5: 0
 //                  6: 21
 Info
+// TC-20
+// Tests Requirements NR5
+// short form command name, existing student
+// expected output: Student GPA: 3.14
+//                  Average GPA of students in grade 1: 2.995
+AG: GARTH
+// TC-20
+// Tests Requirements NR5
+// short form command name, existing student
+// expected output: Student GPA: 3.14
+//                  Average GPA of students with teacher FALKER: 2.995
+AT: GARTH
+// TC-20
+// Tests Requirements NR5
+// short form command name, existing student
+// expected output: Student GPA: 3.14
+//                  Average GPA of students on bus 0: 2.9525
+AB: GARTH
 // TC-23
 // Tests Requirements E1
 // incorrect command
