@@ -99,9 +99,6 @@ public class schoolsearch {
             {
                 enrollment();
             }
-            /*else if(inputArray[0].equals("G:") || inputArray[0].equals("Grade:")) {
-                
-            }*/
             else if(inputArray.length == 2 && inputArray[0].equals("A:") || inputArray[0].equals("Average:")) {
                 average(inputArray[1]);
             }
@@ -206,8 +203,6 @@ public class schoolsearch {
                         + table.get(i).get(3) + "," + teachers.get(j).get(0) + "," + teachers.get(j).get(1));
                     }
                 }
-                //     System.out.println(table.get(i).get(0) + "," + table.get(i).get(1) + ","+ table.get(i).get(2) + ","
-                // + table.get(i).get(3) + "," + table.get(i).get(6) + "," + table.get(i).get(7));
             }
         }
         System.out.println();
@@ -227,11 +222,6 @@ public class schoolsearch {
     }
 
     public static void teacher(String lastname) {
-        // for(int i = 0; i < table.size(); i++) {
-        //     if(table.get(i).get(6).equals(lastname))
-        //         System.out.println(table.get(i).get(0) + "," + table.get(i).get(1));
-        // }
-        // System.out.println();
         String classroom = "";
         for(int i = 0; i < teachers.size(); i++) {
             if(teachers.get(i).get(0).equals(lastname)){
@@ -258,11 +248,6 @@ public class schoolsearch {
     }
 
     public static void classroomTeacher(String classroom) {
-        /*for(int i = 0; i < teachers.size(); i++) {
-            if(teachers.get(i).get(2).equals(classroom))
-                System.out.println(teachers.get(i).get(0) + "," + teachers.get(i).get(1));
-        }
-        System.out.println();*/
         ArrayList<String> teachersByClassroom = findClassroomTeacher(classroom);
         for(int i = 0; i < teachersByClassroom.size()-1; i=i+2) {
             System.out.println(teachersByClassroom.get(i) + "," + teachersByClassroom.get(i+1));
@@ -294,18 +279,9 @@ public class schoolsearch {
         ArrayList<String> teachersOfGrade = new ArrayList<>();
         //find classrooms with given grade
         for(int i = 0; i < table.size(); i++) {
-            /*if(!teachersByClassroom.contains(table.get(i).get(3)) && table.get(i).get(2).equals(grade)){
-                //System.out.println(table.get(i).get(0) + "," + table.get(i).get(1));
-                teachersByClassroom.add(new ArrayList<String>(table.get(i).get(3),findClassroomTeacher(table.get(i).get(3))));
-                
-            }*/
-
             if(!classrooms.contains(table.get(i).get(3)) && table.get(i).get(2).equals(grade))
             {
                 classrooms.add(table.get(i).get(3));
-                //SALMA
-                //System.out.println(table.get(i).get(3));
-                //SALMA
                 teachersOfGrade.addAll(findClassroomTeacher(table.get(i).get(3)));
             }
 
@@ -335,34 +311,13 @@ public class schoolsearch {
         ArrayList<String> classroomsAdded = new ArrayList<>();
         for(int i = 0; i < table.size(); i++) {
             int classroomNumber = Integer.parseInt(table.get(i).get(3));
-            //SALMA
-            //System.out.println();
-            //System.out.println(classroomNumber);
-            //System.out.println(classroomsAdded);
-            //SALMA
             if(classroomsAdded.contains(table.get(i).get(3)))
             {
-                //classroomCount.indexOf(classroomNumber);
                 for (ArrayList<Integer> list : classroomCount) {
-                    //SALMA
-                    //System.out.println(list.get(0));
-                    //SALMA
                     if(list.get(0).equals(classroomNumber))
                     {
-                        //SALMA
-                        //System.out.println(list.get(0));
-                        //SALMA
-                        //SALMA
-                        //System.out.println(oldCount);
-                        //SALMA
                         int oldCount = classroomCount.get(classroomCount.indexOf(list)).get(1);
-                        //SALMA
-                        //System.out.println(oldCount);
-                        //SALMA
                         classroomCount.get(classroomCount.indexOf(list)).set(1,oldCount + 1);
-                        //SALMA
-                        //System.out.println(classroomCount);
-                        //SALMA
                         break;
                     }
                     
@@ -373,14 +328,7 @@ public class schoolsearch {
                 classroomsAdded.add(table.get(i).get(3));
                 classroomCount.add(new ArrayList<Integer>( 
                     Arrays.asList(classroomNumber, 1)));
-                    //SALMA
-                    //System.out.println("NEW: " + classroomCount);
-                    //SALMA
             }
-
-            
-
-                //System.out.println(table.get(i).get(0) + "," + table.get(i).get(1) + ","+ table.get(i).get(4));
         }
         Collections.sort(classroomCount, new Comparator<ArrayList<Integer>>() {    
             //@Override
@@ -442,9 +390,6 @@ public class schoolsearch {
                 break;
             }
         }
-        // System.out.println(table.get(index).get(0) + "," + table.get(index).get(1) + "," + table.get(index).get(5)
-        //                     + "," + table.get(index).get(6) + "," + table.get(index).get(7) + "," + table.get(index).get(4));
-        // System.out.println();
     }
 
     public static void gradeWithLowestGPA(String grade) {
@@ -474,9 +419,6 @@ public class schoolsearch {
                 break;
             }
         }
-        // System.out.println(table.get(index).get(0) + "," + table.get(index).get(1) + "," + table.get(index).get(5)
-        //                     + "," + table.get(index).get(6) + "," + table.get(index).get(7) + "," + table.get(index).get(4));
-        // System.out.println();
 
     }
 
